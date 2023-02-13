@@ -56,8 +56,8 @@ export default class MprMouseWheelTool extends BaseTool {
     ipp[1] += dy;
     ipp[2] += dz;
 
-    console.info('deltas: ', dx, dy, dz)
-    console.info('pos: ', ipp[0], ipp[1], ipp[2])
+    // console.info('deltas: ', dx, dy, dz)
+    // console.info('pos: ', ipp[0], ipp[1], ipp[2])
 
     const iopString = imagePlane.rowCosines.concat(imagePlane.columnCosines).join()
     const ippString = new Float32Array(ipp).join()

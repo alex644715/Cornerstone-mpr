@@ -23,14 +23,16 @@ export default function(seriesNumber) {
     cornerstone.metaData.addProvider(mprMetaDataProvider);
 
     // Enable Elements
-    const originalSeriesElement = document.getElementById("cornerstone-target");
+    // const originalSeriesElement = document.getElementById("cornerstone-target");
     const mprAxialSeriesElement = document.getElementById("axial-target");
     const mprCoronalSeriesElement = document.getElementById("coronal-target");
     const mprSagittalSeriesElement = document.getElementById("sagittal-target");
-    
-    cornerstone.enable(originalSeriesElement, {
-        renderer: "webgl"
-    });
+    const maskElement = document.createElement("div");
+    maskElement.id= 'mask1'
+
+    // cornerstone.enable(originalSeriesElement, {
+    //     renderer: "webgl"
+    // });
 
     cornerstone.enable(mprAxialSeriesElement, {
         renderer: "webgl"
@@ -44,7 +46,7 @@ export default function(seriesNumber) {
         renderer: "webgl"
     });
 
-    _setOriginalSeriesStackState(seriesNumber, originalSeriesElement);
+    _setOriginalSeriesStackState(seriesNumber, mprSagittalSeriesElement);
 
     cornerstoneTools.addToolForElement(mprAxialSeriesElement, MprTool, {
         configuration: { rotationAxis: 'Y' }
@@ -62,15 +64,15 @@ export default function(seriesNumber) {
     cornerstoneTools.addStackStateManager(mprSagittalSeriesElement, ["Mpr"])
 
     // Element Specific Tools
-    cornerstoneTools.setToolActiveForElement(originalSeriesElement, "StackScrollMouseWheel", {});
+    // cornerstoneTools.setToolActiveForElement(originalSeriesElement, "StackScrollMouseWheel", {});
     //
     cornerstoneTools.setToolActiveForElement(mprAxialSeriesElement, "MprMouseWheel", {});
     cornerstoneTools.setToolActiveForElement(mprCoronalSeriesElement, "MprMouseWheel", {});
     cornerstoneTools.setToolActiveForElement(mprSagittalSeriesElement, "MprMouseWheel", {});
     //
-    cornerstoneTools.setToolActiveForElement(mprAxialSeriesElement, "Mpr", { mouseButtonMask: 1, color: '#9ACD32', cosines: "1,0,0,0,1,0" });
-    cornerstoneTools.setToolActiveForElement(mprCoronalSeriesElement, "Mpr", { mouseButtonMask: 1, color: '#0496FF', cosines: "1,0,0,0,0,-1" });
-    cornerstoneTools.setToolActiveForElement(mprSagittalSeriesElement, "Mpr", { mouseButtonMask: 1, color: '#EFBDEB', cosines: "0,1,0,0,0,-1" });
+    cornerstoneTools.setToolActiveForElement(mprAxialSeriesElement, "Mpr", { mouseButtonMask: 1, color: '#32cd51', cosines: "1,0,0,0,1,0" });
+    cornerstoneTools.setToolActiveForElement(mprCoronalSeriesElement, "Mpr", { mouseButtonMask: 1, color: '#32cd51', cosines: "1,0,0,0,0,-1" });
+    cornerstoneTools.setToolActiveForElement(mprSagittalSeriesElement, "Mpr", { mouseButtonMask: 1, color: '#32cd51', cosines: "0,1,0,0,0,-1" });
 }
 
 function _setPeerDependencies(){
@@ -129,6 +131,9 @@ function _initCornerstoneTools(){
 
 function _setOriginalSeriesStackState(seriesNumber, originalSeriesElement){
     const seriesImageIds = appState.series[seriesNumber];
+    // console.log(
+    //     seriesNumber, '--', seriesImageIds
+    // )
     cornerstoneTools.addStackStateManager(originalSeriesElement, [
         'stack'
     ])
@@ -141,5 +146,4 @@ function _setOriginalSeriesStackState(seriesNumber, originalSeriesElement){
 
     cornerstoneTools.clearToolState(originalSeriesElement, 'stack')
     cornerstoneTools.addToolState(originalSeriesElement, 'stack', canvasStack)
-
 }

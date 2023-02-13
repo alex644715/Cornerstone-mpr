@@ -56,7 +56,8 @@ export default function(context, targetElement, targetImagePlane, referenceImage
 
   // Draw the referenceLines
   context.setTransform(1, 0, 0, 1, 0, 0);
-
+  console.log(referenceLine.start)
+  console.log(referenceLine.end)
   draw(context, context => {
     drawLine(
       context,

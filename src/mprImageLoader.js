@@ -4,6 +4,7 @@ import tryGetVtkVolumeForSeriesNumber from './lib/vtk/tryGetVtkVolumeForSeriesNu
 import mapVtkSliceToCornerstoneImage from './lib/vtk/mapVtkSliceToCornerstoneImage.js';
 
 export default function(imageId){
+    // console.log('imageId: ', imageId)
     const imageLoadObject = {
         promise: undefined,
         cancelFn: undefined,

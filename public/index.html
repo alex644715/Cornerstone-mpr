@@ -13,19 +13,19 @@
       }
 
       .container {
-        display: grid;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: 50% 50%;
+        display: flex;
+        justify-content: space-between;
+        /*grid-template-columns: 50% 50%;*/
+        /*grid-template-rows: 50% 50%;*/
       }
 
       /* .container {
         display: flex;
-      }
+      }*/
 
       .item {
-        min-width: 512px;
-        max-height: 512px;
-      } */
+        width: 33.3%;
+      }
     </style>
   </head>
 
@@ -33,7 +33,6 @@
     <main class="container">
 
       <!-- Only bit necessary for Cornerstone -->
-      <div id="cornerstone-target" class="item"></div>
       <div id="axial-target" class="item"></div>
       <div id="coronal-target" class="item"></div>
       <div id="sagittal-target" class="item"></div>

@@ -17,6 +17,9 @@ module.exports = {
   output: {
     path: outputPath
   },
+  node: {
+    fs: 'empty'
+  },
   module: {
     rules: [
       {
@@ -47,11 +50,12 @@ module.exports = {
     ].concat(vtkRules)
   },
   resolve: {
-    modules: [path.resolve(__dirname, 'node_modules'), sourcePath]
+    modules: [path.resolve(__dirname, 'node_modules'), sourcePath],
   },
   devServer: {
     contentBase: path.join(__dirname, 'public'),
     compress: false,
-    port: 9000
-  }
+    port: 9000,
+  },
+  devtool: 'source-map'
 }

@@ -38,8 +38,8 @@ export default function(vtkVolume, options = {}){
     //const xStart = x0 + xSpacing * (xMax - xMin);
     //const yStart = y0 + ySpacing * (yMax - yMin);
     const zStart = z0 + zSpacing * (zMax - zMin); // Inverted z for vtk??
-    console.log(zStart)
-    console.log(z0, zSpacing, zMax, zMin)
+    // console.log(zStart)
+    // console.log(z0, zSpacing, zMax, zMin)
 
     // const centerOfVolume = vec3.fromValues(
     //     x0 + xSpacing * 0.5 * (xMin + xMax),
@@ -53,8 +53,8 @@ export default function(vtkVolume, options = {}){
     // This is the zAxis we set as the volume origin in `createVtkVolumeAsync`
     // NOTE: Applying rotation of 360 degrees to sagittal and coronal fixes reference lines
     // IE. clicking the blue handle 36 times.
-    console.log('~~ pre: ', ippVec3)
-    console.log('~~ zed: ', zedCosinesVec3.join())
+    // console.log('~~ pre: ', ippVec3)
+    // console.log('~~ zed: ', zedCosinesVec3.join())
     const position = vec3.fromValues(
         (zedCosinesVec3[0] * -1 * (ippVec3[0] - x0)) + x0,
         (zedCosinesVec3[1] * (ippVec3[1] - y0)) + y0,
@@ -64,8 +64,8 @@ export default function(vtkVolume, options = {}){
     //     zedCosinesVec3[0] * -1 * ippVec3[0],
     //     zedCosinesVec3[1] * ippVec3[1],
     //     zStart + zedCosinesVec3[2] * (ippVec3[2] - zStart))
-    console.log('~~ pst: ', position)
-    console.log('~~~~~');
+    // console.log('~~ pst: ', position)
+    // console.log('~~~~~');
 
     // Maths
     // TODO: MetaDataProvider to grab `volumeSpacing` and `volumeExtent` for a given volume?
@@ -83,8 +83,7 @@ export default function(vtkVolume, options = {}){
     const spacing = outputSlice.getSpacing();
     const dimensions = outputSlice.getDimensions();
     const bounds = outputSlice.getBounds();
-    console.log(spacing, dimensions, bounds)
-
+    // console.log('outputSlice: ',outputSlice, ',spacing:',spacing, dimensions, bounds)
     const result = {
         slice: outputSlice,
         metaData: {

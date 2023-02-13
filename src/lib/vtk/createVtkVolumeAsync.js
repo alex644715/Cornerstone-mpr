@@ -61,7 +61,7 @@ async function _createVtkVolume(seriesImageIds, dimensions, spacing, zAxis){
     })
 
     // TODO: Is this a better place to set this?
-    console.log('VOLUME ORIGIN: ', zAxis.origin)
+    // console.log('VOLUME ORIGIN: ', zAxis.origin)
     // Our recommended three-step method for
     // handling DICOM coordinates in VTK are to undo any vertical flip applied to the data by the reader, set the
     // origin to zero, and build the above 4×4 matrix from the DICOM metadata.
@@ -141,6 +141,10 @@ async function _getSeriesMetaDataMap(seriesImageIds){
 }
 
 function _calculateDimensions(metaDataMap){
+    // console.log(
+    //     'metaDataMap: ',
+    //     metaDataMap
+    // )
     const imagePlaneModule = metaDataMap.values().next().value;
 
     const { rowCosines, columnCosines } = imagePlaneModule

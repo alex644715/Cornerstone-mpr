@@ -13,7 +13,7 @@ async function kickstartApp(){
     const seriesNumber = 0;
     setupCornerstone(seriesNumber);
 
-    const originalSeriesElement = document.getElementById("cornerstone-target");
+    // const originalSeriesElement = document.getElementById("cornerstone-target");
     const mprAxialSeriesElement = document.getElementById("axial-target");
     const mprCoronalSeriesElement = document.getElementById("coronal-target");
     const mprSagittalSeriesElement = document.getElementById("sagittal-target");
@@ -22,9 +22,9 @@ async function kickstartApp(){
     const seriesImageIds = appState.series[seriesNumber];
     const imageUrl = getUrlForImageId(seriesImageIds[0]);
 
-    cornerstone.loadAndCacheImage(imageUrl).then(image => {
-        cornerstone.displayImage(originalSeriesElement, image);
-    });
+    // cornerstone.loadAndCacheImage(imageUrl).then(image => {
+    //     cornerstone.displayImage(mprAxialSeriesElement, image);
+    // });
 
     // ~~ AXIAL
     // Image orientation patient (IOP)

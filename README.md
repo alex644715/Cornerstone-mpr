@@ -5,6 +5,12 @@
 - `npm run build`: Bundled output
 - `npm run dev`: Active development; preview at `http://localhost:9000`
 
+### Resource
+```
+https://github.com/QSolutionsLLC/cornerstone-vtk-mpr.git
+```
+
+
 ## Resources
 
 I used a number of resources to assist in setting up this repository. I'll try
